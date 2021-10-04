@@ -18,3 +18,4 @@ def print_matrix(arr, columns, name_table):
 # return
 print_matrix(arr_2d, name_col, name_tab)
 print_matrix(arr_2d, name_col, name_tab)
+print()
