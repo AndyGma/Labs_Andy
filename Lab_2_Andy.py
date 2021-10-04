@@ -15,6 +15,6 @@ def print_matrix(arr, columns, name_table):
     for i in arr:
         print(*[f"{x:>5}" for x in i])
     print()
-
+# return
 print_matrix(arr_2d, name_col, name_tab)
 print_matrix(arr_2d, name_col, name_tab)
