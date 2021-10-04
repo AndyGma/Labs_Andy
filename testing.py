@@ -1,4 +1,2 @@
-p_datatypes = ["Python", "апельсин"]
-p_datatypes.insert(1, "BMW")
-print(p_datatypes)
-print(p_datatypes)
+list1 = [1,2,3,4,5]
+list2 = [6,7,8,9,0]
