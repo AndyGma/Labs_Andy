@@ -1,5 +1,4 @@
-mass = [1, 1, 1]
-def add(massiv):
-    massiv.insert(0, massiv)
-
-print(add(mass))
+p_datatypes = ["Python", "апельсин"]
+p_datatypes.insert(1, "BMW")
+print(p_datatypes)
+print(p_datatypes)
