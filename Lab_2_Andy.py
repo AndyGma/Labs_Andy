@@ -3,7 +3,8 @@ import numpy as np
 import random as rand
 
 data = np.array([[-4, 2, -3, 3, 12, 6]], float)  # Вариант 9 - c, d, a, b, N, A
-line = False # Лин.Функция = TRUE; Парабола = FALSE
+# data = np.array([[-4, 2, -3, 3, 12, 6]], float)  # Вариант 2 - c, d, a, b, N, A
+line = True # Лин.Функция = TRUE; Парабола = FALSE
 c = data[0][0]
 d = data[0][1]
 a = data[0][2]
