@@ -1,2 +1,6 @@
-a = [1, 2.5, "Nikita"]
-print(a)
+[
+    any([x/y
+         for y in range(x, 100)
+         if y % 2 == 0])
+    for x in range(abs(N), 10)
+ ]

@@ -4,8 +4,8 @@ import random as rand
 
 rand.seed(1)
 
-data = np.array([[-4, 2, -3, 3, 12, 6]], float)  # Вариант 9 - c, d, a, b, N, A
-# data = np.array([[-4, 2, -1, 2, 12, 5]], float)  # Вариант 2 - c, d, a, b, N, A
+# data = np.array([[-4, 2, -3, 3, 12, 6]], float)  # Вариант 9 - c, d, a, b, N, A
+data = np.array([[-4, 2, -1, 2, 12, 5]], float)  # Вариант 2 - c, d, a, b, N, A
 line = True  # Лин.Функция = TRUE; Парабола = FALSE
 c = data[0][0]
 d = data[0][1]
@@ -62,7 +62,7 @@ def NC(arr_x, arr_y, k):  # k - эпохи
             dd += n * delta
             err += delta ** 2
         errors.append(err)
-    return cc, dd
+    return cc, dd, errors, k
 
 
 def plotic(c_ref, d_ref, a_ref, b_ref, N_ref, A_ref):
@@ -71,11 +71,12 @@ def plotic(c_ref, d_ref, a_ref, b_ref, N_ref, A_ref):
     c_mnk = mnk(arr, N)[1]
     d_mnk = mnk(arr, N)[2]
     print("c_mnk = ", c_mnk, "\td_mnk = ", d_mnk, sep="")
-    c_i, d_i = NC(arr[0], arr[2], 20)
+    c_i, d_i, Errors, k_ep = NC(arr[0], arr[2], 20)
     print("c = ", c_i, "\td = ", d_i, sep="")
     x = np.linspace(a, b, 100)
     y = c_i * x + d_i if line == True else c_i * x**2 + d_i
     plt.plot(x, y, c = 'r', label='НС')
+
     # print(nc_cd[0])
     # print(nc_cd[1])
     # print(mnk_cd)
@@ -83,18 +84,15 @@ def plotic(c_ref, d_ref, a_ref, b_ref, N_ref, A_ref):
     plt.xlabel("X")
     plt.ylabel("Y")
     plt.grid()
-    # plt.plot(arr[0], arr[1], '-b', label='Исходная функция') # Исходная функция
+    plt.plot(arr[0], arr[1], '-b', label='Исходная функция') # Исходная функция
     plt.plot(arr[0], arr[2], 'or') # Значения (points)
     plt.plot(arr[0], mnk_cd, '--og', label='Метод наименьших квадратов') # МНК
-    # plt.plot(arr[0], nc_cd[0], '--og', label='НС') # МНК
     plt.legend()
     plt.show()
-    #
-    # plt.title("Eosh")
-    # plt.xlabel("X")
-    # plt.ylabel("Y")
-    # plt.grid()
-    # plt.plot(range(len(nc_cd[1])), nc_cd[1], '--og')
+
+    print("Ошибка итог: ", Errors[-1])
+
+    plt.plot(range(k_ep), Errors, '--og', label='Ошибка') # МНК
     plt.show()
 
 
